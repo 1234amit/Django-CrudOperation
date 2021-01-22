@@ -1,0 +1,16 @@
+{% extends 'Crud/base.html' %}
+{% load static %}
+{% block content %}
+<h1>List of the Musician:</h1>
+<ul>
+    {% if musician_list %}
+        {% for musician in musician_list %}
+            <li><a href="{% url 'album_list' artist_id=musician.id %}">{{ musician.first_name }} {{ musician.last_name }}</a></li>
+        {% endfor %}
+        {% else %}
+        <h3>There is no any musician list</h3>
+    {% endif %}
+</ul>
+
+
+{% endblock content %}

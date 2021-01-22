@@ -1,0 +1,13 @@
+{% extends 'Crud/base.html' %}
+{% load static %}
+{% block content %}
+<h3 class="text-center mt-5">Musician Form:</h3>
+<div class="main-content mt-5 text-center">
+    <form method="POST">
+        {% csrf_token %}
+        {{ musician_form.as_p }}
+        <input type="submit" name="submit" value="submit" class="btn btn-primary" >
+    </form>
+</div>
+
+{% endblock content %}

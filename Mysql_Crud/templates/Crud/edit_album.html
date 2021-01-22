@@ -1,0 +1,15 @@
+{% extends 'Crud/base.html' %}
+{% load static %}
+{% block content %}
+<div class="main-content mt-5">
+    <h1>Edit Album List</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ edit_form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Update">
+
+    </form>
+    <br>
+    <a href="{% url 'delete' album_id=album_id %}" class="btn btn-danger" onclick="return confirm('Delete this album?')">Delete</a>
+</div>
+{% endblock content %}

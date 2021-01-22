@@ -1,0 +1,30 @@
+{% extends 'Crud/base.html' %}
+{% load static %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <h3 class="text-center mt-5">Contact Form</h3>
+    <div class="">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputName">Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter your Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputAddress">Address</label>
+                <input type="text" name="address" class="form-control" placeholder="Enter your Address">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputcontact">Contact</label>
+                <input type="number" name="contact" class="form-control" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" name="email" class="form-control"  placeholder="Enter email">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'Crud/base.html' %}
+{% load static %}
+{% block content %}
+<h1 class=" mt-5">Add Album</h1>
+<div class="main-content mt-5">
+    <form method="POST">
+        {% csrf_token %}
+        {{ album_form.as_p }}
+        <input type="submit" value="submit" name="submit" class="btn btn-primary">
+    </form>
+</div>
+{% endblock content %}

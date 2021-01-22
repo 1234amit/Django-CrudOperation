@@ -1,0 +1,34 @@
+{% extends 'Crud/base.html' %}
+{% load static %}
+{% block content %}
+<h3 class="text-center mt-5">Album List:</h3>
+<div class="main-content mt-5 text-center">
+    <h3>First Name: {{ artist_info.first_name }} {{ artist_info.last_name }}</h3>
+    <h3>Instument: {{artist_info.instrument}} </h3>
+    <h3>List of the album:</h3>
+    <h3>{{ artist_reating.num_stars__avg }}</h3>
+    <a href="{% url 'edit_artist' artist_id=artist_info.id %}" class="btn btn-success btn-lg" >Edit</a>
+    <table class="table mt-5 table-striped table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Album Name</th>
+                <th>Relese Date</th>
+                <th>Reating</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        {% for album in album_list %}
+        <tbody>
+            <tr>
+                <td>{{album.name}}</td>
+                <td>{{album.relese_date|date:"M d, Y"}}</td>
+                <td>{{album.num_stars}}</td>
+                <td><a href="{% url 'edit_album' album_id=album.id %}" class="btn btn-info">Edit</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{% url 'delete_musician' artist_id=artist_info.id %}" class="btn btn-danger" onclick="return confirm('Are You Sure You Want to Delete')">Delete</a>
+</div>
+{% endblock content %}
